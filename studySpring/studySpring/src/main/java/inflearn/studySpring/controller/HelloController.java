@@ -16,14 +16,14 @@ public class HelloController {
     }
 
     @GetMapping("/hell-mvc")
-    public String helloMvc(@RequestParam(name = "name", required = false) String name, Model model) {
+    public String helloMvc(@RequestParam(required = false) String name, Model model) {
         model.addAttribute("name", name);
         return "hello-template";
     }
 
     @GetMapping("/hell-string")
     @ResponseBody
-    public String helloString(@RequestParam("name") String name) {
+    public String helloString(@RequestParam String name) {
         return "hello " + name;
     }
 
@@ -35,6 +35,10 @@ public class HelloController {
 
     static class Hello{
         private String name;
+
+        public String getName() {
+            return name;
+        }
 
         public Hello(String name){
             this.name = name;
