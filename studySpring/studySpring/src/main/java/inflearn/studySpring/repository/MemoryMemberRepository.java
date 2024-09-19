@@ -1,6 +1,7 @@
 package inflearn.studySpring.repository;
 
 import inflearn.studySpring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
