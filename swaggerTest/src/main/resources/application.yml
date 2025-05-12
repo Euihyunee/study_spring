@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/simple_login?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+
+    username: root
+    password: W@kor137913
+
+  jpa:
+    database: MYSQL
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  level:
+    com.example.demo.controller: debug
+
+springdoc:
+  api-doc:
+    path: /api-docs
+  default:
+    consumes-media-type: applcation/json
+    produces-media-type: application/json
+  packages-to-scan: com.example.demo.Controller
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    doc-expansion: none
+    operations-sorter: alpha
+    tags-sorter: alpha
+
+
+
+
+
