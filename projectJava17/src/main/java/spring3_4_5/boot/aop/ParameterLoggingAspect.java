@@ -36,7 +36,7 @@ public class ParameterLoggingAspect {
             }
         }
 
-        log.info("{} - {} | 파라미터: {}",
+        log.debug("{} - {} | Param: {}",
                 className, methodName, String.join(", ", argDetails));
     }
 

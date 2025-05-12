@@ -2,27 +2,31 @@ package spring3_4_5.boot.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import spring3_4_5.boot.entity.MembersDAO;
+import spring3_4_5.boot.entity.MembersDTO;
 import spring3_4_5.boot.service.AOPService;
 
 @RestController
 @RequestMapping("/aop")
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class AOPController {
 
     private final AOPService aopService;
+    private final MembersDAO membersDAO;
 
-    public AOPController(AOPService aopService) {
-        this.aopService = aopService;
-    }
 
     // parameter x
     @GetMapping("/test")
-    public String checkTime(){
+    public String checkTime() {
         return aopService.test("바이바이");
     }
+
     // parameter o
     @GetMapping("/test2")
-    public String checkTime(@RequestParam(name = "query") String query){
+    public String checkTime(@RequestParam(name = "query") String query) {
         return aopService.test(query);
     }
+
+
 }

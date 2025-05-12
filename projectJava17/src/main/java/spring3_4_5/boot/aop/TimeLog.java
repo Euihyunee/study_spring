@@ -19,22 +19,20 @@ public class TimeLog {
         String packageName = joinPoint.getTarget().getClass().getPackage().getName();
 
         String type;
-        String indent = "";
 
         if (packageName.contains("controller")) {
-            type = "[컨트롤러]";
+            type = "[controller]";
         } else if (packageName.contains("service")) {
-            type = "   [서비스]";
-            indent = "   ";
+            type = "   [service]";
         } else {
-            type = "[알수없음]";
+            type = "[not found]";
         }
 
         long start = System.currentTimeMillis();
-        log.info("{}", type + " 시작 " + className + "." + methodName);
+        log.debug("{}", type + " Start " + className + "." + methodName);
         Object proceed = joinPoint.proceed();
         long executionTime = System.currentTimeMillis() - start;
-        log.info("{}-실행시간:{}", type + " 종료 " + className + "." + methodName, indent + executionTime + "ms");
+        log.debug("{} >> Time:{}", type + " End " + className + "." + methodName, executionTime + " ms");
 
         return proceed;
     }

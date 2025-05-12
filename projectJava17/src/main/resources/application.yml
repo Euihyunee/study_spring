@@ -26,3 +26,7 @@ spring:
           auth: true
           starttls:
             enable: true
+
+logging:
+  level:
+    spring3_4_5.boot: debug
