@@ -2,8 +2,6 @@ package spring3_4_5.boot.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import spring3_4_5.boot.entity.MembersDAO;
-import spring3_4_5.boot.entity.MembersDTO;
 import spring3_4_5.boot.service.AOPService;
 
 @RestController
@@ -13,8 +11,6 @@ import spring3_4_5.boot.service.AOPService;
 public class AOPController {
 
     private final AOPService aopService;
-    private final MembersDAO membersDAO;
-
 
     // parameter x
     @GetMapping("/test")
@@ -27,6 +23,5 @@ public class AOPController {
     public String checkTime(@RequestParam(name = "query") String query) {
         return aopService.test(query);
     }
-
 
 }
