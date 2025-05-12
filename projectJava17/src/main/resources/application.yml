@@ -14,3 +14,15 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  mail:
+    host: smtp.gmail.com #Gmail SMTP 서버주소
+    port: 587 #STARTTLS 포트
+    username: lobil7782@gmail.com # Gmail 주소
+    password: mzwk dzxw tgng bixp # 앱 비밀번호
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
