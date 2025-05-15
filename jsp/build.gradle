@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '3.4.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'kh.openapi'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+	//Jsp에서 jstl 표준태그라이라러리 사용
+	//implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+	//Jsp엔진, jsp 파일을 컴파일하고 실행하는데 필요
+	//implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:11.0.6'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	//JSP 와 서블릿 기능 사용하기위한 기본 api
+	//compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+	compileOnly 'jakarta.servlet:jakarta.servlet-api'
+	//JSTL 구현체: JSTL태그들을 실체로 사용할수 있게 해주는 라이브러리
+	//implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

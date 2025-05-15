@@ -1,0 +1,17 @@
+#spring.mvc.view.prefix=/WEB-INF/views/
+#spring.mvc.view.suffix=.jsp
+#spring.output.ansi.enabled=ALWAYS
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+URL:
+  EndPoint: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?"
+  serviceKey: "serviceKey=4XZZtUbYr8nOSs9OnIOIJsnOjs4ChhGI6LPRe2Iel4Q1ULfQLLLYIkTlqRzk6Zf31Ii%2FBGpKjyTU9%2BkyRNocFQ%3D%3D"
