@@ -1,15 +1,23 @@
 package spring3_4_5.boot.aop;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 
 @Component
 @Slf4j
 @Aspect
 public class TimeLog {
+
+    @Before("execution(* spring3_4_5.boot.controller.*.*(..))")
+    public void DateTime(JoinPoint joinPoint) {
+        log.info("{}" ,LocalDateTime.now());
+    }
 
     // 컨트롤러와 서비스 모두를 대상으로 하는 포인트컷
     @Around("execution(* spring3_4_5.boot.controller.*.*(..)) || execution(* spring3_4_5.boot.service.*.*(..))")
@@ -19,6 +27,7 @@ public class TimeLog {
         String packageName = joinPoint.getTarget().getClass().getPackage().getName();
 
         String type;
+
 
         if (packageName.contains("controller")) {
             type = "[controller]";
